@@ -27,6 +27,14 @@ class CreateTransactionService {
     const transactionsRepository = getCustomRepository(TransactionRepository);
     const categoriesRepository = getRepository(Category);
 
+    const balance = await transactionsRepository.getBalance();
+
+    if (type === 'outcome' && balance.total < value) {
+      throw new AppError(
+        'The value must be smaller than the current balance total.',
+      );
+    }
+
     let categoryDB = await categoriesRepository.findOne({
       where: { title: category },
     });

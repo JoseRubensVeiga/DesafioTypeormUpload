@@ -36,6 +36,14 @@ class Transaction {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  isIncome(): boolean {
+    return this.type === 'income';
+  }
+
+  isOutcome(): boolean {
+    return this.type === 'outcome';
+  }
 }
 
 export default Transaction;
