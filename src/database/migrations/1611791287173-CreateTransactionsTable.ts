@@ -37,11 +37,13 @@ export default class CreateTransactionsTable1611791287173
           },
           {
             name: 'created_at',
-            type: 'timestamp with time zone',
+            type: 'timestamp',
+            default: 'now()',
           },
           {
             name: 'updated_at',
-            type: 'timestamp with time zone',
+            type: 'timestamp',
+            default: 'now()',
           },
         ],
       }),
